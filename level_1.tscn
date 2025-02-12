@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://xhfy35dfmd74"]
+
+[ext_resource type="PackedScene" uid="uid://bopyv85fhn2cu" path="res://player.tscn" id="1_qtan1"]
+[ext_resource type="Script" path="res://Player.cs" id="2_a7pei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe1y5"]
+size = Vector2(1920, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo7rm"]
+size = Vector2(50, 1080)
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Upperwall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Upperwall"]
+position = Vector2(960, -25)
+shape = SubResource("RectangleShape2D_fe1y5")
+
+[node name="LowerWall" type="StaticBody2D" parent="."]
+position = Vector2(960, 1105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerWall"]
+shape = SubResource("RectangleShape2D_fe1y5")
+
+[node name="PlayerBow" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBow"]
+position = Vector2(-25, 540)
+shape = SubResource("RectangleShape2D_lo7rm")
+
+[node name="OpponenBow" type="Area2D" parent="."]
+position = Vector2(1200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponenBow"]
+position = Vector2(745, 540)
+shape = SubResource("RectangleShape2D_lo7rm")
+
+[node name="Player" parent="." instance=ExtResource("1_qtan1")]
+position = Vector2(50, 540)
+script = ExtResource("2_a7pei")
