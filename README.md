@@ -5,7 +5,7 @@ The program was created by integrating GitHub Desk and Godot 4.2 with object-ori
 
 This game was created with the intention of learning C# to get started in the world of video game programming, but learning to handle the basics of C# as best as possible before using the video game engine.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/AyvxmzbCRRg)
 
 # Development Environment
 Godot 4.2
