@@ -16,9 +16,4 @@ public partial class Player : CharacterBody2D
         // Mover al jugador con la velocidad modificada
         MoveAndSlide();
     }
-
-    public override void _Ready()
-    {
-        GD.Print("Hola mundo");
-    }
 }

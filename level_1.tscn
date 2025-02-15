@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://xhfy35dfmd74"]
+[gd_scene load_steps=7 format=3 uid="uid://xhfy35dfmd74"]
 
 [ext_resource type="PackedScene" uid="uid://bopyv85fhn2cu" path="res://player.tscn" id="1_qtan1"]
 [ext_resource type="Script" path="res://Player.cs" id="2_a7pei"]
+[ext_resource type="PackedScene" uid="uid://clwfiirbcpsqc" path="res://ball.tscn" id="3_el3q7"]
+[ext_resource type="Script" path="res://Opponent.cs" id="3_yn0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fe1y5"]
 size = Vector2(1920, 50)
@@ -39,3 +41,48 @@ shape = SubResource("RectangleShape2D_lo7rm")
 [node name="Player" parent="." instance=ExtResource("1_qtan1")]
 position = Vector2(50, 540)
 script = ExtResource("2_a7pei")
+
+[node name="Opponent" parent="." instance=ExtResource("1_qtan1")]
+position = Vector2(1870, 540)
+script = ExtResource("3_yn0xd")
+
+[node name="Ball" parent="." instance=ExtResource("3_el3q7")]
+position = Vector2(960, 540)
+
+[node name="ScorePlayer" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 660.0
+offset_top = 515.0
+offset_right = 860.0
+offset_bottom = 565.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score PLayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreOpponent" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1060.0
+offset_top = 515.0
+offset_right = 1260.0
+offset_bottom = 565.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score Opponent"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestarTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="PlayerBow" to="." method="_on_player_bow_body_entered"]
+[connection signal="body_entered" from="OpponenBow" to="." method="_on_opponen_bow_body_entered"]
+[connection signal="timeout" from="RestarTimer" to="Ball" method="_OnRestartTimerTimeout"]
