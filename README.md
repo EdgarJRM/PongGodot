@@ -1,7 +1,7 @@
 # PongGodot
 PongGodot is a program written in C# using Godot 4.2
 
-The program was created by integrating GitHub Desk and Godot 4.2 with object-oriented programming.
+The program was created by integrating GitHub Desktop and Godot 4.2 with object-oriented programming.
 
 This game was created with the intention of learning C# to get started in the world of video game programming, but learning to handle the basics of C# as best as possible before using the video game engine.
 
