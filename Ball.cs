@@ -13,6 +13,7 @@ public partial class Ball : CharacterBody2D
 
 	public override void _Ready()
 	{
+		// Reference is made to objects
 		_timer = GetParent().GetNodeOrNull<Timer>("RestartTimer");
 		_audioCollision = GetNodeOrNull<AudioStreamPlayer>("AudioBallCollide");
 
@@ -21,13 +22,13 @@ public partial class Ball : CharacterBody2D
 
 	public void ResetBall()
 	{
-		Speed = 600f;
+		Speed = 1100f;
 
-		// Genera una dirección aleatoria asegurando que no sea demasiado vertical
-		float angle = (float)(_random.NextDouble() * Math.PI * 2); // Ángulo aleatorio entre 0 y 2π
+		// Generates a random direction ensuring it is not too vertical
+		float angle = (float)(_random.NextDouble() * Math.PI * 5); // Random angle between 0 and 5π
 		Direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
-		// Asegurar que el movimiento inicial no sea casi vertical (para evitar rebotes repetitivos)
+		// Ensure that the initial movement is not almost vertical (to avoid repetitive bounces)
 		if (Math.Abs(Direction.Y) < 0.2f)
 		{
 			Direction.Y += 0.2f * Math.Sign(Direction.Y);
@@ -35,21 +36,21 @@ public partial class Ball : CharacterBody2D
 
 		Direction = Direction.Normalized();
 		IsMoving = true;
-		//_timer.Stop();
+		_timer.Stop();
 	}
 
 	public override void _PhysicsProcess(double delta){
 		if (IsMoving){
-			Velocity = Direction * Speed; // Asignar la velocidad correctamente
+			Velocity = Direction * Speed; // Assigning speed correctly
 
 			var collide = MoveAndCollide(Velocity * (float)delta);
 
-			if (collide != null) {  // Verificar si hubo colisión{
-				if (_audioCollision != null)  // Verificar que el nodo de sonido exista
+			if (collide != null) {  // Check for collision
+				if (_audioCollision != null)  // Verify that the sound node exists
 				{
 					_audioCollision.Play();
 				}
-				Direction = Direction.Bounce(collide.GetNormal()); // Rebotar correctamente
+				Direction = Direction.Bounce(collide.GetNormal()); // Bounce correctly
 				GD.Print($"Bounced! New Direction: {Direction}");  
 			}
 		}

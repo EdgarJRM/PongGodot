@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://xhfy35dfmd74"]
+[gd_scene load_steps=9 format=3 uid="uid://xhfy35dfmd74"]
 
 [ext_resource type="PackedScene" uid="uid://bopyv85fhn2cu" path="res://player.tscn" id="1_qtan1"]
 [ext_resource type="Script" path="res://Level1.cs" id="1_t8620"]
 [ext_resource type="Script" path="res://Player.cs" id="2_a7pei"]
 [ext_resource type="PackedScene" uid="uid://clwfiirbcpsqc" path="res://ball.tscn" id="3_el3q7"]
 [ext_resource type="Script" path="res://Opponent.cs" id="3_yn0xd"]
+[ext_resource type="Texture2D" uid="uid://bs6gboms280dl" path="res://Asset/morado.jpg" id="6_aqi6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fe1y5"]
 size = Vector2(1920, 50)
@@ -85,6 +86,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RestarTimer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(960, 540)
+scale = Vector2(0.64, 0.54)
+texture = ExtResource("6_aqi6x")
 
 [connection signal="body_entered" from="PlayerBow" to="." method="_on_player_bow_body_entered"]
 [connection signal="body_entered" from="OpponenBow" to="." method="_on_opponen_bow_body_entered"]

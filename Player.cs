@@ -3,17 +3,17 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	private const float SPEED = 400.0f;
+	private const float SPEED = 600.0f;
 
 	public override void _PhysicsProcess(double delta)
 	{
-		// Obtener la entrada de los controles (teclas) izquierda/derecha
+		// Get input from up/down S or W controls (keys)
 		float direction = Input.GetAxis("up", "down");
 
-		// Modificar la velocidad en el eje Y, pero dejar la velocidad en el eje X intacta
+		// Modify the speed on the Y axis, but leave the speed on the X axis intact
 		Velocity = new Vector2(0, direction * SPEED);
 
-		// Mover al jugador con la velocidad modificada
+		// Move the player with modified speed
 		MoveAndSlide();
 	}
 }
