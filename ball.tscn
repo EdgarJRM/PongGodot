@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://kx6c6kk7o4xx" path="res://Asset/ball.png" id="1_005ds"]
 [ext_resource type="Script" path="res://Ball.cs" id="1_bvupx"]
-[ext_resource type="AudioStream" uid="uid://cxkeiqnnfr7vl" path="res://soccerballkick-6770.ogg" id="3_1poci"]
+[ext_resource type="AudioStream" uid="uid://cxkeiqnnfr7vl" path="res://Asset/soccerballkick-6770.ogg" id="3_1poci"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xg7u"]
 radius = 50.0

@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Opponent : CharacterBody2D
 {
-	private const float Speed = 600.0f;
+	private const float Speed = 400.0f;
 	private Ball ball; // Referencia a la pelota
 
 	public override void _Ready()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://xhfy35dfmd74"]
+[gd_scene load_steps=8 format=3 uid="uid://xhfy35dfmd74"]
 
 [ext_resource type="PackedScene" uid="uid://bopyv85fhn2cu" path="res://player.tscn" id="1_qtan1"]
+[ext_resource type="Script" path="res://Level1.cs" id="1_t8620"]
 [ext_resource type="Script" path="res://Player.cs" id="2_a7pei"]
 [ext_resource type="PackedScene" uid="uid://clwfiirbcpsqc" path="res://ball.tscn" id="3_el3q7"]
 [ext_resource type="Script" path="res://Opponent.cs" id="3_yn0xd"]
@@ -12,6 +13,7 @@ size = Vector2(1920, 50)
 size = Vector2(50, 1080)
 
 [node name="Level 1" type="Node2D"]
+script = ExtResource("1_t8620")
 
 [node name="Upperwall" type="StaticBody2D" parent="."]
 
@@ -32,10 +34,9 @@ position = Vector2(-25, 540)
 shape = SubResource("RectangleShape2D_lo7rm")
 
 [node name="OpponenBow" type="Area2D" parent="."]
-position = Vector2(1200, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpponenBow"]
-position = Vector2(745, 540)
+position = Vector2(1945, 540)
 shape = SubResource("RectangleShape2D_lo7rm")
 
 [node name="Player" parent="." instance=ExtResource("1_qtan1")]
@@ -55,12 +56,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 660.0
-offset_top = 515.0
-offset_right = 860.0
-offset_bottom = 565.0
+offset_left = 536.0
+offset_top = 512.5
+offset_right = 784.0
+offset_bottom = 567.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 40
 text = "Score PLayer"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -71,12 +73,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1060.0
-offset_top = 515.0
-offset_right = 1260.0
-offset_bottom = 565.0
+offset_left = 1104.0
+offset_top = 512.5
+offset_right = 1416.0
+offset_bottom = 567.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 40
 text = "Score Opponent"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -85,4 +88,4 @@ vertical_alignment = 1
 
 [connection signal="body_entered" from="PlayerBow" to="." method="_on_player_bow_body_entered"]
 [connection signal="body_entered" from="OpponenBow" to="." method="_on_opponen_bow_body_entered"]
-[connection signal="timeout" from="RestarTimer" to="Ball" method="_OnRestartTimerTimeout"]
+[connection signal="timeout" from="RestarTimer" to="." method="_OnRestartTimerTimeout"]

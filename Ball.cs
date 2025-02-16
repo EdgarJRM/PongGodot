@@ -5,9 +5,9 @@ public partial class Ball : CharacterBody2D
 {
 	public float Speed = 600f;
 	public Vector2 Direction = Vector2.Zero;
-	public bool IsMoving = true;
+	public bool IsMoving = false;
 	private Random _random = new Random();
-
+	
 	private AudioStreamPlayer _audioCollision;
 	private Timer _timer;
 
@@ -35,6 +35,7 @@ public partial class Ball : CharacterBody2D
 
 		Direction = Direction.Normalized();
 		IsMoving = true;
+		//_timer.Stop();
 	}
 
 	public override void _PhysicsProcess(double delta){
